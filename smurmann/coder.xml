@@ -1,25 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Containers>
-  <TemplateURL>https://raw.githubusercontent.com/smurmann/docker-templates/master/smurmann/coder.xml</TemplateURL>
-  <Beta>True</Beta>
-  <Category>Downloaders:</Category>
+<?xml version="1.0"?>
+<Container version="2">
   <Name>smurmann-coder</Name>
-  <Description>
-  Coder is an open source remote development environment serving Visual Studio Code. Accelerate your workflow and surpass the capabilities of your local development machine.[br][br]
-    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
-    [b]/data[/b] This is coders project directory.[br]
-  </Description>
-  <Overview>
-  Coder is an open source remote development environment serving Visual Studio Code. Accelerate your workflow and surpass the capabilities of your local development machine.
-  </Overview>
-  <!-- <Support>http://lime-technology.com/forum/index.php?topic=45820.0</Support> -->
-  <Registry>https://registry.hub.docker.com/u/codercom/code-server/</Registry>
-  <GitHub>https://github.com/cdr/code-server</GitHub>
   <Repository>codercom/code-server</Repository>
-  <Project>https://coder.com/</Project>
-  <BindTime>true</BindTime>
+  <Registry>https://registry.hub.docker.com/u/codercom/code-server/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
   <Privileged>false</Privileged>
-    <Networking>
+  <Support/>
+  <Project>https://coder.com/</Project>
+  <Overview>&#xD;
+  Coder is an open source remote development environment serving Visual Studio Code. Accelerate your workflow and surpass the capabilities of your local development machine.[br][br]&#xD;
+    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]&#xD;
+    [b]/data[/b] This is coders project directory.[br]&#xD;
+  </Overview>
+  <Category>Downloaders:</Category>
+  <WebUI>http://[IP]:[PORT:8443]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/smurmann/docker-templates/master/smurmann/coder.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/smurmann/docker-templates/master/smurmann/images/coder-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs>--allow-http --no-auth</PostArgs>
+  <CPUset/>
+  <DateInstalled>1556887305</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>&#xD;
+  Coder is an open source remote development environment serving Visual Studio Code. Accelerate your workflow and surpass the capabilities of your local development machine.[br][br]&#xD;
+    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]&#xD;
+    [b]/data[/b] This is coders project directory.[br]&#xD;
+  </Description>
+  <Networking>
     <Mode>bridge</Mode>
     <Publish>
       <Port>
@@ -29,24 +39,15 @@
       </Port>
     </Publish>
   </Networking>
-    <Environment>
-    <Variable>
-      <Name>allow-http</Name>
-      <Value>true</Value>
-    </Variable>
-    <Variable>
-      <Name>no-auth</Name>
-      <Value>true</Value>
-    </Variable>
-</Environment>
   <Data>
     <Volume>
       <HostDir>/mnt/user/appdata/data</HostDir>
-      <ContainerDir>/home/coder/project</ContainerDir>
+      <ContainerDir>/data</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <WebUI>http://[IP]:[PORT:8443]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/smurmann/docker-templates/master/smurmann/images/coder-icon.png</Icon>
-  <ExtraParams></ExtraParams>
-</Containers>
+  <Environment/>
+  <Labels/>
+  <Config Name="Host Port 1" Target="8443" Default="8443" Mode="tcp" Description="Container Port: 8443" Type="Port" Display="always" Required="true" Mask="false">8443</Config>
+  <Config Name="Host Path 1" Target="/data" Default="/mnt/user/appdata/data" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/data</Config>
+</Container>

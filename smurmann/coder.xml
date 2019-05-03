@@ -15,7 +15,7 @@
   <!-- <Support>http://lime-technology.com/forum/index.php?topic=45820.0</Support> -->
   <Registry>https://registry.hub.docker.com/u/codercom/code-server/</Registry>
   <GitHub>https://github.com/cdr/code-server</GitHub>
-  <Repository>cdr/code-server</Repository>
+  <Repository>codercom/code-server</Repository>
   <Project>https://coder.com/</Project>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>

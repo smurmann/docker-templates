@@ -29,10 +29,20 @@
       </Port>
     </Publish>
   </Networking>
+    <Environment>
+    <Variable>
+      <Name>allow-http</Name>
+      <Value>true</Value>
+    </Variable>
+    <Variable>
+      <Name>no-auth</Name>
+      <Value>true</Value>
+    </Variable>
+</Environment>
   <Data>
     <Volume>
       <HostDir>/mnt/user/appdata/data</HostDir>
-      <ContainerDir>/data</ContainerDir>
+      <ContainerDir>/home/coder/project</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>

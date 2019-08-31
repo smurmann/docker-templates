@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>svn-server</Name>
+  <Repository>elleflorio/svn-server</Repository>
+  <Registry>https://hub.docker.com/r/elleflorio/svn-server/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/elleflorio/svn-server/</Support>
+  <Project>https://hub.docker.com/r/elleflorio/svn-server/</Project>
+  <Overview>Lightweight container providing an SVN server, based on Alpine Linux and S6 process management (see here for details). The access to the server is possible via WebDav protocol (http://), and via custom protocol (svn://)&#xD;
+&#xD;
+You need to setup username and password for the access via WebDav protocol. You can use the following command from your host machine:&#xD;
+&#xD;
+docker exec -t svn-server htpasswd -b /etc/subversion/passwd &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;</Overview>
+  <Category>Backup: Productivity: Tools:</Category>
+  <WebUI>http://[IP]:[PORT:8180]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/smurmann/docker-templates/master/smurmann/svn-server.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/smurmann/docker-templates/master/smurmann/images/svn-server-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1567259314</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Lightweight container providing an SVN server, based on Alpine Linux and S6 process management (see here for details). The access to the server is possible via WebDav protocol (http://), and via custom protocol (svn://)&#xD;
+&#xD;
+You need to setup username and password for the access via WebDav protocol. You can use the following command from your host machine:&#xD;
+&#xD;
+docker exec -t svn-server htpasswd -b /etc/subversion/passwd &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8180</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>3690</HostPort>
+        <ContainerPort>3690</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/svn-server</HostDir>
+      <ContainerDir>/etc/subversion</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/svn-server/</HostDir>
+      <ContainerDir>/home/svn</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="WebDav" Target="80" Default="8180" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="false" Mask="false">8180</Config>
+  <Config Name="SVN" Target="3690" Default="3690" Mode="tcp" Description="Container Port: 3690" Type="Port" Display="always" Required="false" Mask="false">3690</Config>
+  <Config Name="appdata" Target="/etc/subversion" Default="/mnt/user/appdata/svn-server" Mode="rw" Description="Container Path: /etc/subversion" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/svn-server</Config>
+  <Config Name="SVN Parent Path" Target="/home/svn" Default="/mnt/user/svn-server/" Mode="rw" Description="Container Path: /home/svn" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/svn-server/</Config>
+</Container>
